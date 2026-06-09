@@ -4,10 +4,13 @@ import java.math.BigDecimal;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -27,16 +30,24 @@ public class Product {
 	private BigDecimal price;
 	private String category;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yy")
 	private Date releaseDate;
 	private Boolean available;
 	private int quantity;
+	
+	private String imageName;
+	private String imageType;
+	@Lob
+	private byte[] imageValue;
+	
 
 	// No-args constructor
 	public Product() {
 	}
 
 	// All-args constructor
-	public Product(int id, String name, String description, String brand, BigDecimal price, String category, Date releaseDate, Boolean available, int quantity) {
+	public Product(int id, String name, String description, String brand, BigDecimal price, String category, Date releaseDate, Boolean available, int quantity,
+			        String imageName,String imageType,byte[] imageValue) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -46,6 +57,9 @@ public class Product {
 		this.releaseDate = releaseDate;
 		this.available = available;
 		this.quantity = quantity;
+		this.imageName =imageName;
+		this.imageType =imageType;
+		this.imageValue =imageValue;
 	}
 
 	// Getters and Setters
@@ -119,5 +133,29 @@ public class Product {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+
+	public String getImageType() {
+		return imageType;
+	}
+
+	public void setImageType(String imageType) {
+		this.imageType = imageType;
+	}
+
+	public byte[] getImageValue() {
+		return imageValue;
+	}
+
+	public void setImageValue(byte[] imageValue) {
+		this.imageValue = imageValue;
 	}
 }

@@ -19,4 +19,9 @@ public class ProductService {
 		return repo.findAll();
 	}
 
+	public Product getProductById(int id) {
+		// TODO Auto-generated method stub
+		return repo.findById(id).orElse(null);
+	}
+
 }
