@@ -125,5 +125,11 @@ public class Controller {
 			return new ResponseEntity<String>("Not Deleted",HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@GetMapping("product/search/{keyword}")
+	public ResponseEntity<List<Product>> searchProduct(@PathVariable String keyword){
+		List<Product> product=service.searchProduct(keyword);
+		return new ResponseEntity<List<Product>>(product,HttpStatus.OK );
+	}
 
 }
