@@ -23,7 +23,7 @@ public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String name;
 	private String description;
 	private String brand;
@@ -41,33 +41,13 @@ public class Product {
 	private byte[] imageValue;
 	
 
-	// No-args constructor
-	public Product() {
-	}
-
-	// All-args constructor
-	public Product(int id, String name, String description, String brand, BigDecimal price, String category, Date releaseDate, Boolean available, int quantity,
-			        String imageName,String imageType,byte[] imageValue) {
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.brand = brand;
-		this.price = price;
-		this.category = category;
-		this.releaseDate = releaseDate;
-		this.available = available;
-		this.quantity = quantity;
-		this.imageName =imageName;
-		this.imageType =imageType;
-		this.imageValue =imageValue;
-	}
 
 	// Getters and Setters
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
